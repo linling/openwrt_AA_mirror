@@ -1,0 +1,27 @@
+--- a/drivers/tty/Kconfig
++++ b/drivers/tty/Kconfig
+@@ -86,6 +86,24 @@ config VT_HW_CONSOLE_BINDING
+ 	 information. For framebuffer console users, please refer to
+ 	 <file:Documentation/fb/fbcon.txt>.
+ 
++config ROBOPEAK_VT_RPUSBDISP
++	tristate "RoboPeak USB Display virtual terminal support"
++	default y
++	select VT
++	select CONSOLE_TRANSLATIONS
++	select HW_CONSOLE
++	select VT_CONSOLE
++	select VT_HW_CONSOLE_BINDING
++	select HID
++	select HIDRAW
++	select UHID
++	select HID_GENERIC
++	select USB
++	select USB_COMMON
++	select USB_HID
++       ---help---
++	  This virtual config is to add virtual terminal support for RoboPeak USB Display.
++
+ config UNIX98_PTYS
+ 	bool "Unix98 PTY support" if EXPERT
+ 	default y

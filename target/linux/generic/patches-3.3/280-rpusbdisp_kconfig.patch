@@ -1,0 +1,35 @@
+--- a/drivers/video/Kconfig
++++ b/drivers/video/Kconfig
+@@ -35,6 +35,7 @@ config VIDEO_OUTPUT_CONTROL
+ 
+ menuconfig FB
+ 	tristate "Support for frame buffer devices"
++	default y
+ 	---help---
+ 	  The frame buffer device provides an abstraction for the graphics
+ 	  hardware. It represents the frame buffer of some video hardware and
+@@ -2237,6 +2238,24 @@ config FB_VIRTUAL
+ 
+ 	  If unsure, say N.
+ 
++config ROBOPEAK_FBDEV_RPUSBDISP
++	tristate "RoboPeak USB Display frame buffer support"
++	select FB
++	select FB_CFB_FILLRECT
++	select FB_CFB_COPYAREA
++	select FB_CFB_IMAGEBLIT
++	select FB_DEFERRED_IO
++	select FB_MODE_HELPERS
++	select FB_SYS_FILLRECT
++	select FB_SYS_COPYAREA
++	select FB_SYS_IMAGEBLIT
++	select FB_SYS_FOPS
++	select FB_TILEBLITTING
++	default y
++	---help---
++	  This driver implements the front-end of the RoboPeak USB Display
++	  frame buffer driver. 
++
+ config XEN_FBDEV_FRONTEND
+ 	tristate "Xen virtual frame buffer support"
+ 	depends on FB && XEN

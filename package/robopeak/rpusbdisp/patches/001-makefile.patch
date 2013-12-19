@@ -1,0 +1,14 @@
+Makefile: Allow overriding PWD variable
+
+Signed-off-by: Ling Lin <mickey.leen@gmail.com>
+
+--- a/drivers/linux-driver/Makefile
++++ b/drivers/linux-driver/Makefile
+@@ -14,6 +14,7 @@
+ 
+ DRIVER_NAME := rp_usbdisplay
+ KERNEL_SOURCE_DIR ?= /lib/modules/`uname -r`/build
++$(PWD) ?= $(PWD)
+ 
+ EXTRA_CFLAGS += -I$(PWD)/src -I$(PWD)/../common
+ 

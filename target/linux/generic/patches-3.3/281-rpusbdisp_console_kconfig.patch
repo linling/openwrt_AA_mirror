@@ -1,0 +1,19 @@
+--- a/drivers/video/console/Kconfig
++++ b/drivers/video/console/Kconfig
+@@ -238,5 +238,16 @@ config FONT_AUTOSELECT
+ 	depends on !FONT_10x18
+ 	select FONT_8x16
+ 
++config ROBOPEAK_CONSOLE_RPUSBDISP
++	tristate "RoboPeak USB Display console support"
++	default y
++	select FRAMEBUFFER_CONSOLE
++	select FRAMEBUFFER_CONSOLE_DETECT_PRIMARY
++	select FRAMEBUFFER_CONSOLE_ROTATION
++	select DUMMY_CONSOLE
++	select FONT_6x11
++       ---help---
++	  This virtual config is to add console support for RoboPeak USB Display.
++
+ endmenu
+ 
