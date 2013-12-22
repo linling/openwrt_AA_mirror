@@ -1,6 +1,6 @@
 #!/bin/sh /etc/rc.common
 
-START=20
+START=12
 STOP=90
 
 SERVICE_DAEMONIZE=1
@@ -19,7 +19,7 @@ start() {
 	include /lib/network
 	setup_switch
 
-	sleep 5
+	sleep 2
 
 	/sbin/wifi down
 	/sbin/wifi up
