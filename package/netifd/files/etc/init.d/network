@@ -23,7 +23,6 @@ start() {
 
 	/sbin/wifi down
 	/sbin/wifi up
-	/usr/bin/serial2tcp_bridge /etc/rp.conf &
 }
 
 restart() {
