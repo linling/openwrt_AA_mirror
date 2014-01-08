@@ -612,7 +612,7 @@ config wifi-iface
 	option device   radio$devidx
 	option network  lan
 	option mode     ap
-	option ssid     RPSLAMSDP
+	option ssid     RoboPeak-ROM
 	option encryption none
 
 EOF
