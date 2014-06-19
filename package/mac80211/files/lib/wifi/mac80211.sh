@@ -612,8 +612,24 @@ config wifi-iface
 	option device   radio$devidx
 	option network  lan
 	option mode     ap
-	option ssid     RPSLAMSDP
+	option ssid     SLAMWARESDP-$(cat /sys/class/ieee80211/${dev}/macaddress| tr 'a-z' 'A-Z' | sed -e 's/://g')
 	option encryption none
+        # WLAN SETTINGS TO CONNECT TO AP
+        #option network wlan
+        #option mode sta
+        # CHANGE to your wifi SSID
+        #option ssid XXXXX
+        #option encryption psk+tkip+aes
+        # CHANGE to your wifi PASSWORD
+        #option key  XXXXX
+        # REMEMBER SETTING WLAN IP to /etc/conf/network
+        #config interface wlan
+        #      option ifname   wlan0
+        #      option proto    static
+        #      option ipaddr   10.111.0.199
+        #      option netmask  255.0.0.0
+        #      option gateway  10.111.0.1
+
 
 EOF
 	devidx=$(($devidx + 1))
